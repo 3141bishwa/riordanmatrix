@@ -1,0 +1,21 @@
+<body>
+		<input type="text" name='list' class="list"><br>
+		<p> Enter the sequence whose Riordan matrix you want to generate </p>
+		<input type = "submit" class="submit"></button>
+		<div class="result"></div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+<script>
+	$('.submit').click(function () {
+
+		myList = $('.list').val();
+		console.log(myList);
+		$.when($.ajax("http://localhost:8000/matrix/getarray/?list=" + myList )).done( function(data) {
+
+			jQueryObject = $($.parseHTML(data));
+			console.log(jQueryObject);
+   			$('.result').html(data)
+      });
+	});
+</script>
