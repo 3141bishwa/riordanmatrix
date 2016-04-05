@@ -40,6 +40,5 @@ def RiordanBellArrayGeneratorWithSum(myArray):
 
     rowSums = myFinalArray.sum(axis=1)
     rowSums.shape = (size,1)
-    myFinalArray = np.append(myFinalArray, rowSums, axis = 1)
     return myFinalArray
 
